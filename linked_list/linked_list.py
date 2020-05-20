@@ -31,6 +31,18 @@ class LinkedList(object):
         while(current):
             print(current.data)
             current = current.ref
+    
+    def kthFromTheEnd(self, k):
+        counter = 0
+        current = self.newNode
+        while current:
+            counter = counter + 1
+            current = current.ref
+        kstart = counter -1 -k
+        if kstart < 0 and k < 0:
+            kstart = kstart -1
+            current = current.ref
+        print(current) 
 
 if __name__=='__main__':
     ll = LinkedList()
@@ -39,10 +51,11 @@ if __name__=='__main__':
     ll.insert(15)
     ll.insert(13)
     ll.insert(4)
-    ll._str_()
-    if ll.includes(13):
-        print("yes")
-    else:
-        print("no")
+    # ll._str_()
+    ll.kthFromTheEnd(0)
+    # if ll.includes(13):
+    #     print("yes")
+    # else:
+    #     print("no")
 
 
